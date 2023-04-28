@@ -1,17 +1,11 @@
 package org.spring.springboot.service.impl;
 
-import org.spring.springboot.mapper.FactorDao;
-import org.spring.springboot.entity.Factor;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.spring.springboot.entity.vo.FactorVo;
+import org.spring.springboot.mapper.FactorMapper;
 import org.spring.springboot.service.FactorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//@Service
-public class FactorServiceImpl implements FactorService {
-//    @Autowired
-//    private FactorDao factorDao;
-//    public Factor[] getFactorsByGroupId(String groupId) {
-//        return factorDao.getFactorsByGroupId(groupId);
-//    }
-
+@Service
+public class FactorServiceImpl extends ServiceImpl <FactorMapper, FactorVo> implements FactorService {
 }

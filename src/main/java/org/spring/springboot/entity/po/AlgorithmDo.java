@@ -1,13 +1,14 @@
-package org.spring.springboot.entity.vo;
+package org.spring.springboot.entity.po;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import org.spring.springboot.entity.Factor;
 
 /**
  * algorithm
  */
+@TableName("algorithm")
 @Data
-public class algorithmVO {
+public class AlgorithmDo {
     /**
      * 算法描述
      */

@@ -1,8 +1,8 @@
 package org.spring.springboot.service;
 
-//import org.spring.springboot.entity.Factor;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import org.spring.springboot.entity.vo.FactorVo;
 
-public interface FactorService {
-//    Factor[] getFactorsByGroupId(String groupId);
+public interface FactorService extends IService<FactorVo> {
 }

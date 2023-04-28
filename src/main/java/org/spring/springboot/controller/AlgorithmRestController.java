@@ -1,7 +1,7 @@
 package org.spring.springboot.controller;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.spring.springboot.entity.Algorithm;
-import org.spring.springboot.entity.vo.algorithmVO;
+
+import org.spring.springboot.entity.po.AlgorithmDo;
+import org.spring.springboot.service.AlgorithmFactors1Service;
 import org.spring.springboot.service.AlgorithmService;
 import org.spring.springboot.utils.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,43 +16,33 @@ import java.util.List;
 public class AlgorithmRestController {
     @Autowired
     private AlgorithmService algorithmService;
-//    @GetMapping("list")
-//    public Result<Algorithm[]> search(String searchType, String searchContent) {
-//        return Result.success(algorithmService.searchAlgorithms(searchType, searchContent));
-//    }
-//
-//    @GetMapping("get")
-//    public Result<Algorithm> getById(String id) {
-//        return Result.success(algorithmService.getAlgorithmById(id));
-//    }
-//    @PostMapping("add")
-//    public Result<String> createNewAlgorithm(@RequestBody Algorithm algorithm) {
-//        System.out.println(algorithm.toString()+"wow");
-//        algorithmService.createNewAlgorithm(algorithm);
-//        return Result.success("完成");
-//    }
-    @GetMapping("getAll")
-    public void getAll(){
-        QueryWrapper<algorithmVO> queryWrapper;
-        queryWrapper = null;
-        List<algorithmVO> list = algorithmService.list(queryWrapper);
-        for(algorithmVO al :list){
-            System.out.println(list);
-        }
+    @Autowired
+    private AlgorithmFactors1Service algorithmFactors1Service;
 
+    @GetMapping("list")
+    public Result<List<AlgorithmDo>> getAll() {
+        List<AlgorithmDo> list = algorithmService.list(null);
+//        for(AlgorithmVO al :list){
+//            System.out.println(list);
+//        }
+        return Result.success(list);
     }
+
+    //TODO：这个暂时没用
     @GetMapping("find/{id}")
-    public algorithmVO getById(@PathVariable String id){
+    public Result<AlgorithmDo> getById(@PathVariable String id) {
 //        QueryWrapper<algorithmVO> queryWrapper =new QueryWrapper<>();
 //        queryWrapper.eq("id" ,id);
 //        queryWrapper.eq("name",name);
 //        queryWrapper.gt("create_at",time);
-        algorithmVO byId = algorithmService.getById(id);
-        return byId;
+        AlgorithmDo byId = algorithmService.getById(id);
+        return Result.success(byId);
     }
-    @PostMapping("insert")
-    public boolean insert(@RequestBody algorithmVO algorithmVO){
-        boolean save = algorithmService.save(algorithmVO);
-        return save;
+
+    @PostMapping("save")
+    public boolean save(@RequestBody AlgorithmDo algorithmVO) {
+//        TODO:先从VO转成实际要存的几种对象，然后保存
+        // 每个表对象对应一个mapper,一个service,一个 ServiceImpl
+        return algorithmService.save(algorithmVO);
     }
 }
