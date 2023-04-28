@@ -1,13 +1,13 @@
 package org.spring.springboot.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.spring.springboot.entity.po.AlgorithmDo;
+import org.spring.springboot.entity.po.Algorithm;
 import org.spring.springboot.mapper.AlgorithmMapper;
 import org.spring.springboot.service.AlgorithmService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AlgorithmServiceImpl extends ServiceImpl<AlgorithmMapper, AlgorithmDo> implements AlgorithmService {
+public class AlgorithmServiceImpl extends ServiceImpl<AlgorithmMapper, Algorithm> implements AlgorithmService {
 }
 //public class AlgorithmServiceImpl implements AlgorithmService {
 //    @Autowired
