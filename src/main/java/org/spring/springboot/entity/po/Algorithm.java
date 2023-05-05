@@ -1,17 +1,18 @@
 package org.spring.springboot.entity.po;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
  * algorithm
  */
-@TableName("super_algorithm")
 @Data
 public class Algorithm {
     /**
      * 算法id
      */
+    @TableId(type = IdType.AUTO)
     private String id;
     /**
      * 算法名称
@@ -36,4 +37,8 @@ public class Algorithm {
      * 选股算法文件对应的路径
      */
    private String algorithmFilePath;
+    /**
+     * 算法完成状态: "todo" | "done"
+     */
+   private String status;
 }

@@ -2,7 +2,7 @@ package org.spring.springboot.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import org.spring.springboot.entity.vo.FactorVo;
+import org.spring.springboot.entity.po.Factor;
 
-public interface FactorService extends IService<FactorVo> {
+public interface FactorService extends IService<Factor> {
 }

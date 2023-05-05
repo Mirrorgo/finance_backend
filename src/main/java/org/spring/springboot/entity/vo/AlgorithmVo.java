@@ -1,11 +1,12 @@
 package org.spring.springboot.entity.vo;
 
 import lombok.Data;
-import org.spring.springboot.entity.po.AlgorithmFactor1;
+import lombok.Getter;
 
 import java.util.List;
 
 @Data
+//TODO: 后续增强可维护性，把所有data改成getter
 public class AlgorithmVo {
     /**
      * 算法id:新建算法时没有这一项
@@ -18,7 +19,7 @@ public class AlgorithmVo {
     /**
      * 仅综合选股
      */
-    private List<AlgorithmFactor1> factors;
+    private List<Factor> factors;
     /**
      * 算法描述：对于条件选股由业务人员直接编写，对于综合选股由技术人员编写
      */
@@ -37,5 +38,22 @@ public class AlgorithmVo {
      * 选股算法文件对应的路径
      */
     private String algorithmFilePath;
+    private String status;
+
+    @Data
+    public static class Factor {
+        /**
+         * 这个id是factorId,可以根据这个获取因子名称
+         */
+        private String id;
+        /**
+         * 因子名称
+         */
+        private String name;
+        /**
+         * 选股逻辑描述，对应数据库中的logic_description字段
+         */
+        private String description;
+    }
 }
 
