@@ -36,7 +36,7 @@ public class Algorithm {
      */
     private String logicDescription;
     /**
-     * 选股算法文件对应的路径
+     * 选股算法文件对应的路径，目前新建时产生的.py文件的路径即为算法id
      */
     private String algorithmFilePath;
     /**
