@@ -3,6 +3,8 @@ package org.spring.finance.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.apache.ibatis.annotations.Param;
 import org.spring.finance.entity.po.Algorithm;
 import org.spring.finance.entity.po.AlgorithmFactor1;
@@ -104,6 +106,9 @@ public class AlgorithmRestController {
             algorithm.setStatus("todo"); // 综合选股还需要由技术人员进行后续开发
         }
         algorithmService.save(algorithm);
+        // 更新AlgorithmFilePath字段
+        algorithm.setAlgorithmFilePath(algorithm.getId());
+        algorithmService.updateById(algorithm);
         List<AlgorithmVo.Factor> list = algorithmVO.getFactors();
         if (Objects.equals(algorithmVO.getType(), "1")) {
             for (AlgorithmVo.Factor factor : list) {

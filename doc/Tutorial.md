@@ -13,3 +13,10 @@
 * mapper 只有一些模式化的代码了
 * service 只有一些模式化的代码了
 * utils 自定义的工具方法
+
+
+连接数据库相关
+```shell
+cd "C:\Program Files\MySQL\MySQL Server 8.0\bin"
+.\mysql.exe -u root -P 32769 -h localhost -p
+```
