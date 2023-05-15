@@ -38,6 +38,7 @@ public class AlgorithmVo {
     private String algorithmFilePath;
     private String status;
     private String createdAt;
+    private String author;
 
     @Data
     public static class Factor {

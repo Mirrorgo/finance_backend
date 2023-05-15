@@ -128,4 +128,15 @@ public class AlgorithmRestController {
         }
         return Result.success(algorithm.getId());
     }
+
+    @PostMapping("update")
+    public Result<String> update(@RequestBody AlgorithmVo algorithmVO) {
+//        目前仅2综合选股需要支持update接口, 且仅能修改算法描述字段
+        Algorithm algorithm = new Algorithm();
+        BeanUtil.copyProperties(algorithmVO, algorithm);
+        System.out.println(algorithmVO);
+        System.out.println(algorithm);
+        algorithmService.updateById(algorithm);
+        return Result.success("success");
+    }
 }
