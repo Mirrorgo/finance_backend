@@ -3,8 +3,6 @@ package org.spring.finance.controller;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.apache.ibatis.annotations.Param;
 import org.spring.finance.entity.po.Algorithm;
 import org.spring.finance.entity.po.AlgorithmFactor1;
